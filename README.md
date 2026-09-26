@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Site
 
-## Getting Started
+A personal portfolio for showcasing projects, built with Next.js (App Router), React Server Components and Tailwind CSS. Every page is statically generated, and the theme follows the visitor's light/dark preference.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All content lives in two files — no need to touch the layout to update the site:
 
-## Learn More
+- `src/lib/site.ts` — your name, role, tagline, about text, skills, email and social links.
+- `src/lib/projects.ts` — the list of projects. Each entry gets its own page at `/projects/<slug>`; set `featured: true` to show it on the home page.
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/
+    layout.tsx              Root layout: header, main content, footer
+    page.tsx                Home: hero, featured projects, about, contact
+    projects/page.tsx       All projects
+    projects/[slug]/page.tsx  Individual project page
+    not-found.tsx           404 page
+    globals.css             Theme colour tokens (light + dark)
+  components/               Header, footer, section, project card, etc.
+  lib/                      Site and project data
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run `pnpm build` to produce a production build. The easiest host is [Vercel](https://vercel.com/new) — import the repository and it deploys automatically on every push. See the [Next.js deployment docs](https://nextjs.org/docs/app/getting-started/deploying) for other options.
