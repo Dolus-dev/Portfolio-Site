@@ -21,6 +21,16 @@ export function SiteHeader() {
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href={site.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent transition-opacity hover:opacity-80"
+              >
+                Resume
+              </a>
+            </li>
           </ul>
         </nav>
       </Container>

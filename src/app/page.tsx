@@ -83,6 +83,14 @@ function Hero() {
         >
           Contact me
         </Link>
+        <a
+          href={site.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-12 items-center rounded-full border border-border px-6 font-medium transition-colors hover:border-foreground"
+        >
+          Resume (PDF)
+        </a>
       </div>
     </Container>
   );
